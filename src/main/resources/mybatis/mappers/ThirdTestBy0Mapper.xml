@@ -1,0 +1,165 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.auto.dao.ThirdTestBy0Dao" >
+    <resultMap id="BaseResultMap" type="com.auto.domain.ThirdTestBy0" >
+        <id column="sqlthirdid" property="thirdid" jdbcType="INTEGER" />       <!-- 含义：第三次主键注释 -->
+        <result column="yn" property="yn" jdbcType="INTEGER" />       <!-- 含义：逻辑删除标识 -->
+        <result column="ta_Test_NBA0" property="taTestNBA0" jdbcType="VARCHAR" />     <!-- 表列名的注释0 -->
+        <result column="ta_Test_NBA1" property="taTestNBA1" jdbcType="VARCHAR" />     <!-- 表列名的注释1 -->
+        <result column="ta_Test_NBA2" property="taTestNBA2" jdbcType="VARCHAR" />     <!-- 表列名的注释2 -->
+        <result column="ta_Test_NBA3" property="taTestNBA3" jdbcType="VARCHAR" />     <!-- 表列名的注释3 -->
+        <result column="ta_Test_NBA4" property="taTestNBA4" jdbcType="VARCHAR" />     <!-- 表列名的注释4 -->
+
+    </resultMap>
+
+    <!-- 新增第三次测试表 -->
+    <insert id="insert" parameterType="com.auto.domain.ThirdTestBy0" >
+        INSERT INTO  (
+
+            ta_Test_NBA0,
+            ta_Test_NBA1,
+            ta_Test_NBA2,
+            ta_Test_NBA3,
+            ta_Test_NBA4,
+            yn
+        )
+        VALUES (
+
+            #{taTestNBA0,jdbcType=VARCHAR},
+            #{taTestNBA1,jdbcType=VARCHAR},
+            #{taTestNBA2,jdbcType=VARCHAR},
+            #{taTestNBA3,jdbcType=VARCHAR},
+            #{taTestNBA4,jdbcType=VARCHAR},
+            1
+        )
+    </insert>
+
+   <!-- 修改第三次测试表 -->
+    <update id="updateByID" parameterType="com.auto.domain.ThirdTestBy0" >
+        <if test="_parameter != null and thirdid != null">
+        UPDATE 
+        <set>
+                <if test="taTestNBA0 != null and taTestNBA0 != ''" >
+                ta_Test_NBA0 = #{taTestNBA0,jdbcType=VARCHAR},
+            </if>
+    
+                <if test="taTestNBA1 != null and taTestNBA1 != ''" >
+                ta_Test_NBA1 = #{taTestNBA1,jdbcType=VARCHAR},
+            </if>
+    
+                <if test="taTestNBA2 != null and taTestNBA2 != ''" >
+                ta_Test_NBA2 = #{taTestNBA2,jdbcType=VARCHAR},
+            </if>
+    
+                <if test="taTestNBA3 != null and taTestNBA3 != ''" >
+                ta_Test_NBA3 = #{taTestNBA3,jdbcType=VARCHAR},
+            </if>
+    
+                <if test="taTestNBA4 != null and taTestNBA4 != ''" >
+                ta_Test_NBA4 = #{taTestNBA4,jdbcType=VARCHAR},
+            </if>
+    
+            yn = 1
+        </set>
+        <where>
+            sqlthirdid = #{thirdid,jdbcType=INTEGER}
+            AND yn = 1
+        </where>
+        </if>
+    </update>
+
+    <!-- 逻辑删除 第三次测试表 -->
+    <update id="deleteByID" parameterType="com.auto.domain.ThirdTestBy0" >
+        <if test="_parameter != null and thirdid != null">
+            UPDATE 
+            <set>
+                yn = 0
+            </set>
+            <where>
+                sqlthirdid = #{thirdid,jdbcType=INTEGER}
+                AND yn = 1
+            </where>
+        </if>
+    </update>
+
+    <!-- 根据主键批量删除第三次测试表（逻辑删除） -->
+    <update id="deleteBatchByIDList" parameterType="java.util.List" >
+        <if test="_parameter != null">
+            UPDATE 
+            <set>
+                yn = 0
+            </set>
+            <where>
+                sqlthirdid in
+                <foreach collection="ThirdTestBy0s" item = "ThirdTestBy0" open="(" separator="," close=")">
+                    #{ThirdTestBy0.thirdid,jdbcType=INTEGER}
+                </foreach>
+                AND yn = 1
+            </where>
+        </if>
+    </update>
+
+
+
+    <!-- 根据条件查询第三次测试表 -->
+    <select id="select" resultMap="BaseResultMap" parameterType="com.auto.domain.ThirdTestBy0" >
+        SELECT
+            sqlthirdid,
+            ta_Test_NBA0,
+            ta_Test_NBA1,
+            ta_Test_NBA2,
+            ta_Test_NBA3,
+            ta_Test_NBA4,
+            yn
+        FROM
+            
+        <where>
+            yn = 1
+            <if test="taTestNBA0 != null" >
+                AND ta_Test_NBA0 = #{taTestNBA0,jdbcType=VARCHAR}
+            </if>
+            <if test="taTestNBA1 != null" >
+                AND ta_Test_NBA1 = #{taTestNBA1,jdbcType=VARCHAR}
+            </if>
+            <if test="taTestNBA2 != null" >
+                AND ta_Test_NBA2 = #{taTestNBA2,jdbcType=VARCHAR}
+            </if>
+            <if test="taTestNBA3 != null" >
+                AND ta_Test_NBA3 = #{taTestNBA3,jdbcType=VARCHAR}
+            </if>
+            <if test="taTestNBA4 != null" >
+                AND ta_Test_NBA4 = #{taTestNBA4,jdbcType=VARCHAR}
+            </if>
+            <if test="thirdid != null" >
+                AND sqlthirdid = #{thirdid,jdbcType=INTEGER}
+            </if>
+
+        </where>
+    </select>
+
+    <!-- 根据条件查询第三次测试表数量 -->
+    <select id="selectCount" resultType="java.lang.Integer"  parameterType="com.auto.domain.ThirdTestBy0" >
+        SELECT
+            COUNT(1)
+        FROM
+            
+        <where>
+            yn = 1
+                                                <if test="taTestNBA0 != null" >
+                        AND ta_Test_NBA0 = #{taTestNBA0,jdbcType=VARCHAR}
+                    </if>
+                                                                <if test="taTestNBA1 != null" >
+                        AND ta_Test_NBA1 = #{taTestNBA1,jdbcType=VARCHAR}
+                    </if>
+                                                                <if test="taTestNBA2 != null" >
+                        AND ta_Test_NBA2 = #{taTestNBA2,jdbcType=VARCHAR}
+                    </if>
+                                                                <if test="taTestNBA3 != null" >
+                        AND ta_Test_NBA3 = #{taTestNBA3,jdbcType=VARCHAR}
+                    </if>
+                                                                <if test="taTestNBA4 != null" >
+                        AND ta_Test_NBA4 = #{taTestNBA4,jdbcType=VARCHAR}
+                    </if>
+                                    </where>
+    </select>
+</mapper>
