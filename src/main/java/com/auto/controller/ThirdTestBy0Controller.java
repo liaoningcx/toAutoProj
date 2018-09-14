@@ -15,6 +15,7 @@ import org.springframework.web.bind.annotation.ResponseBody;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import java.util.ArrayList;
 import java.util.List;
 
 /**
@@ -35,6 +36,19 @@ public class ThirdTestBy0Controller {
     }
 
     /**
+     * 查询所有第三次测试表
+     * @param model
+     * @param response
+     * @return 第三次测试表结果
+     */
+    @ResponseBody
+    @RequestMapping(value = "/testEasyuidg", method = {RequestMethod.GET,RequestMethod.POST})
+    public String testEasyuidg(Model model, HttpServletResponse response) {
+        System.out.println("88888");
+        return "{'total':28,'rows':[{'productid':'FI-SW-01','productname':'Koi','unitcost':10.00,'status':'P','listprice':36.50,'attr1':'Large','itemid':'EST-1'},    {'productid':'K9-DL-01','productname':'Dalmation','unitcost':12.00,'status':'P','listprice':18.50,'attr1':'Spotted Adult Female','itemid':'EST-10'},\t{'productid':'RP-SN-01','productname':'Rattlesnake','unitcost':12.00,'status':'P','listprice':38.50,'attr1':'Venomless','itemid':'EST-11'},\t{'productid':'RP-SN-01','productname':'Rattlesnake','unitcost':12.00,'status':'P','listprice':26.50,'attr1':'Rattleless','itemid':'EST-12'},\t{'productid':'RP-LI-02','productname':'Iguana','unitcost':12.00,'status':'P','listprice':35.50,'attr1':'Green Adult','itemid':'EST-13'},\t{'productid':'FL-DSH-01','productname':'Manx','unitcost':12.00,'status':'P','listprice':158.50,'attr1':'Tailless','itemid':'EST-14'},\t{'productid':'FL-DSH-01','productname':'Manx','unitcost':12.00,'status':'P','listprice':83.50,'attr1':'With tail','itemid':'EST-15'},\t{'productid':'FL-DLH-02','productname':'Persian','unitcost':12.00,'status':'P','listprice':23.50,'attr1':'Adult Female','itemid':'EST-16'},\t{'productid':'FL-DLH-02','productname':'Persian','unitcost':12.00,'status':'P','listprice':89.50,'attr1':'Adult Male','itemid':'EST-17'},\t{'productid':'AV-CB-01','productname':'Amazon Parrot','unitcost':92.00,'status':'P','listprice':63.50,'attr1':'Adult Male','itemid':'EST-18'}]}".trim();
+    }
+
+    /**
     * 查询所有第三次测试表
     * @param model
     * @param response
@@ -42,11 +56,21 @@ public class ThirdTestBy0Controller {
     */
     @ResponseBody
     @RequestMapping(value = "/queryThirdTestBy0", method = {RequestMethod.GET,RequestMethod.POST})
-    public CommonResponse queryThirdTestBy0(Model model, HttpServletResponse response) {
+    public CommonResponse queryThirdTestBy0(Model model,ThirdTestBy0 thirdTestBy0, HttpServletResponse response) {
         CommonResponse<List<ThirdTestBy0>> commonResponse = new CommonResponse<List<ThirdTestBy0>>();
         try {
             ThirdTestBy0 query = new ThirdTestBy0();
-            List<ThirdTestBy0> thirdTestBy0List = thirdTestBy0Service.select(query);
+//            List<ThirdTestBy0> thirdTestBy0List = thirdTestBy0Service.select(query);
+            List<ThirdTestBy0> thirdTestBy0List = new ArrayList<ThirdTestBy0>();
+            for(int i=0;i<6;i++){
+                ThirdTestBy0 thirdTestBy0Entiries = new ThirdTestBy0();
+                thirdTestBy0Entiries.setTaTestNBA0("aaa"+i);
+                thirdTestBy0Entiries.setTaTestNBA1("fgfgn"+i);
+                thirdTestBy0Entiries.setTaTestNBA2("aafhmtya"+i);
+                thirdTestBy0Entiries.setTaTestNBA3("tyev"+i);
+                thirdTestBy0Entiries.setTaTestNBA4("vnfh"+i);
+                thirdTestBy0List.add(thirdTestBy0Entiries);
+            }
             commonResponse.setData(thirdTestBy0List);
         }catch (Exception ex){
             ex.printStackTrace();

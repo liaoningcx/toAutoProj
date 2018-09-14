@@ -1,120 +1,42 @@
+#set($layout = "layout/null.vm")
 <!DOCTYPE html>
-<html lang="en">
-<head>
-    <title>自动项目页标题</title>
-    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-    <meta charset="utf-8">
-
-    <link href="#springUrl('/static/css/mmsproj/bootstrap.css')" rel="stylesheet" type="text/css">
-    <link rel="stylesheet" href="#springUrl('/static/css/mmsproj/font-awesome.min.css')"/>
-    <!--[if IE 7]>
-    <link rel="stylesheet" href="#springUrl('/static/css/mmsproj/font-awesome-ie7.min.css')"/>
-    <![endif]-->
-    <link rel="stylesheet" href="#springUrl('/static/css/mmsproj/ace.min.css')"/>
-
-</head>
-<script>
-    $(function () {
-        $(".module").bind("click", function () {
-            $(".active").removeClass("active");
-            $(this).parent().addClass("active");
-        });
-    });
-</script>
-<body style="overflow-x:hidden;">
-<div class="navbar navbar-default" id="navbar">
-
-
-    <div class="navbar-container" id="navbar-container">
-        <div class="navbar-header pull-left">
-            <a href="#" class="navbar-brand">
-                <small>
-                    <i class="icon-leaf"></i>
-                    自动项目看看好使不
-                </small>
-            </a><!-- /.brand -->
-
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>Full Layout - jQuery EasyUI Demo</title>
+        <link rel="stylesheet" type="text/css" href="#springUrl('')/static/jquery-easyui-1.6.3/themes/default/easyui.css" />
+        <link rel="stylesheet" type="text/css" href="#springUrl('')/static/jquery-easyui-1.6.3/themes/icon.css" />
+        <link rel="stylesheet" type="text/css" href="#springUrl('')/static/jquery-easyui-1.6.3/demo/demo.css" />
+        <script type="text/javascript" src="#springUrl('')/static/jquery-easyui-1.6.3/jquery.min.js"></script>
+        <script type="text/javascript" src="#springUrl('')/static/jquery-easyui-1.6.3/jquery.easyui.min.js"></script>
+        <script type="text/javascript" src="#springUrl('')/static/bussiness/testEasyUi.js"></script>
+    </head>
+    <body class="easyui-layout">
+        <div data-options="region:'north',border:false" style="height:60px;background:#B3DFDA;padding:10px">
+            north region
         </div>
-        <div class="navbar-header pull-right">
-            <a href="/logout" class="navbar-brand">
-                <font size="3"><i class="icon-off"></i>退出</font>
-            </a>
+        <div data-options="region:'west',split:true,title:'West'" style="width:150px;padding:10px;">
+            west content
         </div>
-        <!-- /.navbar-header -->
-    </div>
-    <!-- /.container -->
-</div>
-
-<div class="main-container" id="main-container">
-    <script type="text/javascript">
-        try {
-            ace.settings.check('main-container', 'fixed')
-        } catch (e) {
-        }
-    </script>
-
-    <div class="container-fluid">
-        <a class="menu-toggler" id="menu-toggler" href="#">
-            <span class="menu-text"></span>
-        </a>
-
-        <div class="sidebar" id="sidebar">
-            <script type="text/javascript">
-                try {
-                    ace.settings.check('sidebar', 'fixed')
-                } catch (e) {
-                }
-            </script>
-            <ul class="nav nav-list">
-                <li class="open">
-                    <a href="#" class="dropdown-toggle">
-                        <i class="icon-dashboard"></i>
-                        <span class="menu-text">自动业务</span>
-                        <b class="arrow icon-angle-down"></b>
-                    </a>
-                    <ul class="submenu" style="display: block;">
-                        <li class="active">
-                                                                <a class="module" href="#springUrl('')/thirdTestBy0/thirdTestBy0View" target="mainFrame">
-                                <i class="icon-double-angle-right"></i>
-                                数据体维护？thirdTestBy0
-                            </a>
-                                                                <a class="module" href="#springUrl('')/thirdTestBy1/thirdTestBy1View" target="mainFrame">
-                                <i class="icon-double-angle-right"></i>
-                                数据体维护？thirdTestBy1
-                            </a>
-                                                    </li>
-                    </ul>
-                </li>
-            </ul>
-            <!-- /.nav-list -->
+        <div data-options="region:'east',split:true,collapsed:true,title:'East'" style="width:100px;padding:10px;">
+            east region
         </div>
-        <div class="main-content">
-            <div class="page-content">
-                <div class="row">
-                    <div class="col-xs-13">
-                        <iframe name="mainFrame" id="mainFrame" frameborder='0' width='95%' height='860px'
-                                 style="overflow-y: auto;"/>
-                    </div>
-                    <!-- /.col -->
-                </div>
-            </div>
-            <!-- /.page-content -->
+        <div data-options="region:'south',border:false" style="height:50px;background:#A9FACD;padding:10px;">
+            south region
         </div>
-        <!-- /.main-content -->
-    </div>
-    <!-- /.main-container-inner -->
-</div>
-<!-- /.main-container -->
-<!--[if !IE]> -->
-<script type="text/javascript">
-    window.jQuery || document.write("<script src='\'#springUrl('/static/js/mmsproj/lib/jquery-2.0.3.min.js')\''>" + "<" + "/script>");
-</script>
-<!-- <![endif]-->
-<!--[if IE]>
-<script type="text/javascript">
-    window.jQuery || document.write("<script src='\'#springUrl('/static/js/mmsproj/lib/jquery-1.10.2.min.js')\''>" + "<" + "/script>");
-</script>
-<![endif]-->
-</body>
+        <div data-options="region:'center',title:'Center'">
+            <table id="dgData" class="easyui-datagrid" title="Basic DataGrid" style="width:100%;height:100%" data-options="singleSelect:true,collapsible:true">
+                <thead>
+                    <tr>
+                        <th data-options="field:'taTestNBA0',width:80">taTestNBA0</th>
+                        <th data-options="field:'taTestNBA1',width:100">taTestNBA1</th>
+                        <th data-options="field:'taTestNBA2',width:80,align:'right'">taTestNBA2</th>
+                        <th data-options="field:'taTestNBA3',width:80,align:'right'">taTestNBA3</th>
+                        <th data-options="field:'taTestNBA4',width:250">taTestNBA4</th>
+                        <th data-options="field:'taTestNBA5',width:60,align:'center'">taTestNBA5</th>
+                    </tr>
+                </thead>
+            </table>
+        </div>
+    </body>
 </html>
-
