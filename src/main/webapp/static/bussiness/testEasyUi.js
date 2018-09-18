@@ -17,18 +17,25 @@ $(document).ready(function(){
     // $("#dgData").datagrid("reload");
     var query = {};
     query.taTestNBA0 = "123456";
-    $.ajax({
-        type: "POST", //提交数据的类型 分为POST和GET
-        async: false,
-        url: "/thirdTestBy0/queryThirdTestBy0",  //提交url 注意url必须小写
-        data: query,
-        success: function (data) {
-            var jsondata = eval(data);
-            //var jsData = (new Function("", "return " + data))();
-            var resultData = jsondata.data;
-            $('#dg').datagrid('loadData', resultData);
-        }
-    });
+    // $.ajax({
+    //     type: "POST", //提交数据的类型 分为POST和GET
+    //     async: false,
+    //     // url: "/thirdTestBy0/queryThirdTestBy0",  //提交url 注意url必须小写
+    //     url: "/thirdTestBy0/testEasyuidg",  //提交url 注意url必须小写
+    //     data: query,
+    //     success: function (data) {
+    //         var resultData = JSON.parse(data);//转换成json对象
+    //         // alert(resultData);
+    //         $('#dg').datagrid('loadData', resultData);
+    //     }
+    // });
+
+    // $('#dgData').datagrid({
+    //     data: [
+    //         {productid:'value11', productname:'value12'},
+    //         {productid:'value21', productname:'value22'}
+    //     ]
+    // });
 
 })
 //清除上次数据
