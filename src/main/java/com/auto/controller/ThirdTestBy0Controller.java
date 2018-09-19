@@ -1,11 +1,14 @@
 package com.auto.controller;
 
+import com.alibaba.fastjson.JSON;
 import com.auto.common.CommonResponse;
 import com.auto.common.Page;
 
 import com.auto.service.ThirdTestBy0Service;
 import com.auto.domain. ThirdTestBy0;
 
+import com.google.gson.Gson;
+import net.sf.json.util.JSONUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -16,7 +19,9 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 /**
  * 第三次测试表的Controller实现
@@ -44,9 +49,24 @@ public class ThirdTestBy0Controller {
     @ResponseBody
     @RequestMapping(value = "/testEasyuidg", method = {RequestMethod.GET,RequestMethod.POST})
     public String testEasyuidg(Model model, HttpServletResponse response) {
-        System.out.println("33333333333333333333");
+        System.out.println("76885685865");
 //        return "{'total':28,'rows':[{'productid':'FI-SW-01','productname':'Koi','unitcost':10.00,'status':'P','listprice':36.50,'attr1':'Large','itemid':'EST-1'},{'productid':'K9-DL-01','productname':'Dalmation','unitcost':12.00,'status':'P','listprice':18.50,'attr1':'Spotted Adult Female','itemid':'EST-10'},{'productid':'RP-SN-01','productname':'Rattlesnake','unitcost':12.00,'status':'P','listprice':38.50,'attr1':'Venomless','itemid':'EST-11'},{'productid':'RP-SN-01','productname':'Rattlesnake','unitcost':12.00,'status':'P','listprice':26.50,'attr1':'Rattleless','itemid':'EST-12'},{'productid':'RP-LI-02','productname':'Iguana','unitcost':12.00,'status':'P','listprice':35.50,'attr1':'Green Adult','itemid':'EST-13'},{'productid':'FL-DSH-01','productname':'Manx','unitcost':12.00,'status':'P','listprice':158.50,'attr1':'Tailless','itemid':'EST-14'},{'productid':'FL-DSH-01','productname':'Manx','unitcost':12.00,'status':'P','listprice':83.50,'attr1':'With tail','itemid':'EST-15'},{'productid':'FL-DLH-02','productname':'Persian','unitcost':12.00,'status':'P','listprice':23.50,'attr1':'Adult Female','itemid':'EST-16'},{'productid':'FL-DLH-02','productname':'Persian','unitcost':12.00,'status':'P','listprice':89.50,'attr1':'Adult Male','itemid':'EST-17'},{'productid':'AV-CB-01','productname':'Amazon Parrot','unitcost':92.00,'status':'P','listprice':63.50,'attr1':'Adult Male','itemid':'EST-18'}]}".trim();
-        return "{\"total\":28,\"rows\":[{\"productid\":\"FI-SW-01\",\"productname\":\"Koi\",\"unitcost\":10.00,\"status\":\"P\",\"listprice\":36.50,\"attr1\":\"Large\",\"itemid\":\"EST-1\"}]}";
+//        return "{\"total\":28,\"rows\":[{\"productid\":\"FI-SW-01\",\"productname\":\"Koi\",\"unitcost\":10.00,\"status\":\"P\",\"listprice\":36.50,\"attr1\":\"Large\",\"itemid\":\"EST-1\"}]}";
+        List<Map<String, Object>> rows= new ArrayList<Map<String, Object>>();
+        for (int i=0;i<5;i++){
+            Map<String, Object> eachmap = new HashMap<String, Object>();
+            eachmap.put("itemid","itemid"+String.valueOf(i));
+            eachmap.put("productid","productid"+String.valueOf(i));
+            eachmap.put("listprice","listprice"+String.valueOf(i));
+            eachmap.put("unitcost","unitcost"+String.valueOf(i));
+            eachmap.put("attr1","attr1"+String.valueOf(i));
+            eachmap.put("status","status"+String.valueOf(i));
+            rows.add(eachmap);
+        }
+        Map<String, Object> map=new HashMap<String, Object>();
+        map.put("total", 5);
+        map.put("rows", rows);
+        return JSON.toJSONString(map);
     }
 
     /**
