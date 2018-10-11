@@ -26,4 +26,9 @@ public class BaseController {
         return "index";
     }
 
+    @RequestMapping(value = "/easyui", method = RequestMethod.GET)
+    public String easyui(Model model, HttpServletResponse response) {
+        return "easyuidemo";
+    }
+
 }

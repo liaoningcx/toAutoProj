@@ -64,7 +64,7 @@ public class ThirdTestBy0Controller {
             rows.add(eachmap);
         }
         Map<String, Object> map=new HashMap<String, Object>();
-        map.put("total", 5);
+        map.put("total", 22);
         map.put("rows", rows);
         return JSON.toJSONString(map);
     }
