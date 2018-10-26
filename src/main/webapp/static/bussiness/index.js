@@ -16,3 +16,16 @@ $(document).ready(function(){
         }
     });
 })
+
+function clearUpdateForm(){
+
+}
+function saveUpdateForm(){
+
+}
+function saveInsForm(){
+
+}
+function resetInsForm(){
+
+}

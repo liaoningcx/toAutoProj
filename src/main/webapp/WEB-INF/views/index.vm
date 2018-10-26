@@ -1,48 +1,114 @@
 
 <script type="text/javascript" src="#springUrl('')/static/bussiness/index.js"></script>
+<div id="queryParam" style="height:20%;">
 
-<div data-options="region:'north',border:false" style="height:60px;background:#B3DFDA;padding:10px">
-    north region
 </div>
-<div data-options="region:'west',split:true,title:'West'" style="width:150px;padding:10px;">
-    west content
-</div>
-<div data-options="region:'east',split:true,collapsed:true,title:'East'" style="width:100px;padding:10px;">
-    east region
-</div>
-<div data-options="region:'south',border:false" style="height:50px;background:#A9FACD;padding:10px;">
-    south region
-</div>
-<div data-options="region:'center',title:'Center'">
-    <div id="queryParam" style="height:20%;">
+<div style="height: 80%">
+    <table id="dgData" class="easyui-datagrid" title="自定义测试" style="width:100%;height:100%"
+    ##                   data-options="singleSelect:true,collapsible:true,url:'/static/jquery-easyui-1.6.3/demo/datagrid/datagrid_data1.json',method:'get'">
+           data-options="rownumber:true,pagination:true,singleSelect:true,collapsible:true">
+    ##                <thead>
+    ##                    <tr>
+    ##                        <th data-options="field:'taTestNBA0',width:80">taTestNBA0</th>
+    ##                        <th data-options="field:'taTestNBA1',width:100">taTestNBA1</th>
+    ##                        <th data-options="field:'taTestNBA2',width:80,align:'right'">taTestNBA2</th>
+    ##                        <th data-options="field:'taTestNBA3',width:80,align:'right'">taTestNBA3</th>
+    ##                        <th data-options="field:'taTestNBA4',width:250">taTestNBA4</th>
+    ##                        <th data-options="field:'taTestNBA5',width:60,align:'center'">taTestNBA5</th>
+    ##                    </tr>
+    ##                </thead>
 
+        <thead>
+        <tr>
+            <th data-options="field:'itemid',width:100">Item ID1</th>
+            <th data-options="field:'productid',width:100">Product</th>
+            <th data-options="field:'listprice',width:180,align:'right'">List Price</th>
+            <th data-options="field:'unitcost',width:180,align:'right'">Unit Cost</th>
+            <th data-options="field:'attr1',width:250">Attribute</th>
+            <th data-options="field:'status',width:160,align:'center'">Status</th>
+        </tr>
+        </thead>
+    </table>
+
+    <!-- 修改的div -->
+    <div id="w" class="easyui-window" title="修改员工信息" data-options="iconCls:'icon-save',closed:true"
+         style="width:500px;height:300px;padding:5px;">
+        <form id="ff" method="post">
+            <input type="hidden" name="_method" value="put">
+            <table cellpadding="5">
+                <tr>
+                    <td>员工姓名:</td>
+                    <td><input class="easyui-textbox" type="text" name="ename" data-options="required:true" ></input></td>
+                </tr>
+                <tr>
+                    <td>工    种:</td>
+                    <td><input class="easyui-textbox" type="text" name="job" data-options="required:true" ></input></td>
+                </tr>
+                <tr>
+                    <td>入职日期:</td>
+                    <td><input class="easyui-datebox" type="text" name="hiredate" data-options="required:true"></input></td>
+                </tr>
+                <tr>
+                    <td>薪    水:</td>
+                    <td><input class="easyui-textbox" type="text" name="sal" data-options="required:true"></input></td>
+                </tr>
+                <tr>
+                    <td>性    别:</td>
+                    <td>
+                        <select class="easyui-combobox" name="deptno" style="width:50px">
+                            <option value="1">男</option>
+                            <option value="0">女</option>
+
+                        </select>
+                    </td>
+                </tr>
+            </table>
+        </form>
+        <div style="text-align:center;padding:5px">
+            <a href="javascript:void(0)" class="easyui-linkbutton" onclick="saveUpdateForm()">保存</a>
+            <a href="javascript:void(0)" class="easyui-linkbutton" onclick="clearUpdateForm()">重置</a>
+        </div>
     </div>
-    <div style="height: 80%">
-        <table id="dgData" class="easyui-datagrid" title="自定义测试" style="width:100%;height:100%"
-        ##                   data-options="singleSelect:true,collapsible:true,url:'/static/jquery-easyui-1.6.3/demo/datagrid/datagrid_data1.json',method:'get'">
-               data-options="rownumber:true,pagination:true,singleSelect:true,collapsible:true">
-        ##                <thead>
-        ##                    <tr>
-        ##                        <th data-options="field:'taTestNBA0',width:80">taTestNBA0</th>
-        ##                        <th data-options="field:'taTestNBA1',width:100">taTestNBA1</th>
-        ##                        <th data-options="field:'taTestNBA2',width:80,align:'right'">taTestNBA2</th>
-        ##                        <th data-options="field:'taTestNBA3',width:80,align:'right'">taTestNBA3</th>
-        ##                        <th data-options="field:'taTestNBA4',width:250">taTestNBA4</th>
-        ##                        <th data-options="field:'taTestNBA5',width:60,align:'center'">taTestNBA5</th>
-        ##                    </tr>
-        ##                </thead>
+    <!-- 新增的div -->
+    <div id="z" class="easyui-window" title="增加员工信息" data-options="iconCls:'icon-save',closed:true" style="width:500px;height:300px;padding:5px;">
+        <form id="zz" method="post">
+            <table cellpadding="5">
+                <tr>
+                    <td>员工姓名:</td>
+                    <td><input class="easyui-textbox" type="text" name="ename"></input></td>
+                </tr>
+                <tr>
+                    <td>工    种:</td>
+                    <td><input class="easyui-textbox" type="text" name="job" data-options="required:true" ></input></td>
+                </tr>
 
-            <thead>
-            <tr>
-                <th data-options="field:'itemid',width:100">Item ID1</th>
-                <th data-options="field:'productid',width:100">Product</th>
-                <th data-options="field:'listprice',width:180,align:'right'">List Price</th>
-                <th data-options="field:'unitcost',width:180,align:'right'">Unit Cost</th>
-                <th data-options="field:'attr1',width:250">Attribute</th>
-                <th data-options="field:'status',width:160,align:'center'">Status</th>
-            </tr>
-            </thead>
-        </table>
+                <tr>
+                    <td>薪    水:</td>
+                    <td><input class="easyui-textbox" type="text" name="sal" data-options="required:true"></input></td>
+                </tr>
+                <tr>
+                    <td>入职日期:</td>
+                    <td><input class="easyui-datebox" type="text" name="hiredate" data-options="required:true"></input></td>
+                </tr>
+
+                <tr>
+                    <td>性    别:</td>
+                    <td>
+                        <select class="easyui-combobox" name="deptno" style="width:50px">
+                            <option value="1">男</option>
+                            <option value="0">女</option>
+
+                        </select>
+                    </td>
+                </tr>
+
+            </table>
+        </form>
+        <div style="text-align:center;padding:5px">
+            <a href="javascript:void(0)" class="easyui-linkbutton" onclick="saveInsForm()">保存</a>
+            <a href="javascript:void(0)" class="easyui-linkbutton" onclick="resetInsForm()">重置</a>
+        </div>
     </div>
+
 
 </div>
