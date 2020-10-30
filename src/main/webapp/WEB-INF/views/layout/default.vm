@@ -1,40 +1,162 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml">
+<!DOCTYPE html>
+<html>
 <head>
-    <title>首页</title>
-    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
-    <meta http-equiv="pragma" content="no-cache">
-    <meta http-equiv="cache-control" content="no-cache">
-    <meta http-equiv="expires" content="0">
-    <!-- easyui start-->
-    <link rel="stylesheet" type="text/css" href="#springUrl('')/static/jquery-easyui-1.6.3/themes/default/easyui.css" />
-    <link rel="stylesheet" type="text/css" href="#springUrl('')/static/jquery-easyui-1.6.3/themes/icon.css" />
-    <link rel="stylesheet" type="text/css" href="#springUrl('')/static/jquery-easyui-1.6.3/demo/demo.css" />
-    <script type="text/javascript" src="#springUrl('')/static/jquery-easyui-1.6.3/jquery.min.js"></script>
-    <script type="text/javascript" src="#springUrl('')/static/jquery-easyui-1.6.3/jquery.easyui.min.js"></script>
-    <script type="text/javascript" src="#springUrl('')/static/jquery-easyui-1.6.3/locale/easyui-lang-zh_CN.js"></script>
-    <!--easyui end-->
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 
-    <script type="text/javascript">
-        var springUrl = "#springUrl('')";   //路径全局变量
-    </script>
+    <!-- Meta, title, CSS, favicons, etc. -->
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <title>Bootstrap Demo </title>
+
+    <!-- Bootstrap -->
+    <link href="#springUrl('')/vendors/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Font Awesome -->
+    <link href="#springUrl('')/vendors/font-awesome/css/font-awesome.min.css" rel="stylesheet">
+    <!-- NProgress 加载进度条 -->
+    <link href="#springUrl('')/vendors/nprogress/nprogress.css" rel="stylesheet">
+    <!-- iCheck -->
+    <link href="#springUrl('')/vendors/iCheck/skins/flat/green.css" rel="stylesheet">
+
+    <!-- Custom Theme Style -->
+    <link href="#springUrl('')/build/css/custom.min.css" rel="stylesheet">
 </head>
-<body  class="easyui-layout">
-    <div data-options="region:'north',border:false" style="height:60px;background:#B3DFDA;padding:10px">
-        north region11
+<body class="nav-md">
+
+<!-- jQuery -->
+<script src="#springUrl('')/vendors/jquery/dist/jquery.min.js"></script>
+<!-- Bootstrap -->
+<script type="text/javascript" src="#springUrl('')/vendors/bootstrap/dist/js/bootstrap.min.js"></script>
+<script src="#springUrl('')/vendors/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+<!-- FastClick -->
+<script src="#springUrl('')/vendors/fastclick/lib/fastclick.js"></script>
+<!-- NProgress -->
+<script src="#springUrl('')/vendors/nprogress/nprogress.js"></script>
+<!-- Chart.js -->
+<script src="#springUrl('')/vendors/Chart.js/dist/Chart.min.js"></script>
+<!-- gauge.js -->
+<script src="#springUrl('')/vendors/gauge.js/dist/gauge.min.js"></script>
+<!-- bootstrap-progressbar -->
+<script src="#springUrl('')/vendors/bootstrap-progressbar/bootstrap-progressbar.min.js"></script>
+<!-- iCheck -->
+<script src="#springUrl('')/vendors/iCheck/icheck.min.js"></script>
+<!-- Skycons -->
+<script src="#springUrl('')/vendors/skycons/skycons.js"></script>
+<!-- Flot -->
+<script src="#springUrl('')/vendors/Flot/jquery.flot.js"></script>
+<script src="#springUrl('')/vendors/Flot/jquery.flot.pie.js"></script>
+<script src="#springUrl('')/vendors/Flot/jquery.flot.time.js"></script>
+<script src="#springUrl('')/vendors/Flot/jquery.flot.stack.js"></script>
+<script src="#springUrl('')/vendors/Flot/jquery.flot.resize.js"></script>
+<!-- Flot plugins -->
+<script src="#springUrl('')/vendors/flot.orderbars/js/jquery.flot.orderBars.js"></script>
+<script src="#springUrl('')/vendors/flot-spline/js/jquery.flot.spline.min.js"></script>
+<script src="#springUrl('')/vendors/flot.curvedlines/curvedLines.js"></script>
+<!-- DateJS -->
+<script src="#springUrl('')/vendors/DateJS/build/date.js"></script>
+<!-- JQVMap -->
+<script src="#springUrl('')/vendors/jqvmap/dist/jquery.vmap.js"></script>
+<script src="#springUrl('')/vendors/jqvmap/dist/maps/jquery.vmap.world.js"></script>
+<script src="#springUrl('')/vendors/jqvmap/examples/js/jquery.vmap.sampledata.js"></script>
+<!-- bootstrap-daterangepicker -->
+<script src="#springUrl('')/vendors/moment/min/moment.min.js"></script>
+<script src="#springUrl('')/vendors/bootstrap-daterangepicker/daterangepicker.js"></script>
+
+<!-- Custom Theme Scripts -->
+<script src="#springUrl('')/build/js/custom.min.js"></script>
+<div class="container body">
+    <div class="main_container">
+        <div class="col-md-3 left_col">
+            <div class="left_col scroll-view">
+                <div class="navbar nav_title" style="border: 0;">
+                    <a href="index.html" class="site_title"><i class="fa fa-paw"></i> <span>bootstrap例子</span></a>
+                </div>
+
+                <div class="clearfix"></div>
+
+                <!-- menu profile quick info -->
+                <div class="profile clearfix">
+                    <div class="profile_pic">
+                        <img src="images/img.jpg" alt="..." class="img-circle profile_img">
+                    </div>
+                    <div class="profile_info">
+                        <span>欢迎,</span>
+                        <h2>懒惰者1</h2>
+                    </div>
+                </div>
+                <!-- /menu profile quick info -->
+
+                <br />
+
+                <!-- sidebar menu -->
+                <div id="sidebar-menu" class="main_menu_side">
+                    <div class="menu_section">
+                        <ul class="nav side-menu">
+                            <li><a><i class="fa fa-edit"></i> 一级菜单 <span class="fa fa-chevron-down"></span></a>
+                                <ul class="nav child_menu">
+                                    <li><a href="form.html">二级菜单1</a></li>
+                                    <li><a href="form_advanced.html">二级菜单2</a></li>
+                                    <li><a href="form_validation.html">二级菜单3</a></li>
+                                    <li><a href="form_wizards.html">二级菜单4</a></li>
+                                    <li><a href="form_upload.html">二级菜单5</a></li>
+                                    <li><a href="form_buttons.html">二级菜单6</a></li>
+                                </ul>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+                <!-- /sidebar menu -->
+
+            </div>
+        </div>
+
+        <!-- top navigation -->
+        <div class="top_nav">
+            <div class="nav_menu">
+                <div class="nav toggle">
+                    <a id="menu_toggle"><i class="fa fa-bars"></i></a>
+                </div>
+                <nav class="nav navbar-nav">
+                    <ul class=" navbar-right">
+                        <li class="nav-item dropdown open" style="padding-left: 15px;">
+                            <a href="javascript:;" class="user-profile dropdown-toggle" aria-haspopup="true" id="navbarDropdown" data-toggle="dropdown" aria-expanded="false">
+                                <img src="images/img.jpg" alt="">懒惰者
+                            </a>
+                            <div class="dropdown-menu dropdown-usermenu pull-right" aria-labelledby="navbarDropdown">
+                                <a class="dropdown-item"  href="javascript:;"> 用户操作1</a>
+                                <a class="dropdown-item"  href="javascript:;">
+                                    <span class="badge bg-red pull-right">73%</span>
+                                    <span>操作2</span>
+                                </a>
+                                <a class="dropdown-item"  href="javascript:;">帮助</a>
+                                <a class="dropdown-item"  href="login.html"><i class="fa fa-sign-out pull-right"></i> 迁出</a>
+                            </div>
+                        </li>
+
+                    </ul>
+                </nav>
+            </div>
+        </div>
+        <!-- /top navigation -->
+
+        <!-- page content -->
+        <div class="right_col" role="main">
+            $screen_content
+        </div>
+        <!-- /page content -->
+
+        <!-- footer content -->
+        <footer>
+            <div class="pull-right">
+                Lisenced by 无码伤人
+            </div>
+            <div class="clearfix"></div>
+        </footer>
+        <!-- /footer content -->
     </div>
-    <div data-options="region:'west',split:true,title:'West'" style="width:150px;padding:10px;">
-        west content
-    </div>
-    <div data-options="region:'east',split:true,collapsed:true,title:'East'" style="width:100px;padding:10px;">
-        east region
-    </div>
-    <div data-options="region:'south',border:false" style="height:50px;background:#A9FACD;padding:10px;">
-        south region
-    </div>
-    <div data-options="region:'center',title:'Center'">
-        $screen_content
-    </div>
+</div>
+
+
 </body>
 </html>
-

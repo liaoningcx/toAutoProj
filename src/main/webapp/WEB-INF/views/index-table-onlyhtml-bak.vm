@@ -1,0 +1,319 @@
+<script type="text/javascript" src="../../static/js/common/util/nc_alert.js"></script>
+<div class="main-container ace-save-state" id="main-container">
+    <div class="main-content">
+        <div class="main-content-inner">
+            <div class="page-content">
+                <table id="simple-table" class="table  table-bordered table-hover">
+                    <thead>
+                    <tr>
+                        <th class="center">
+                            <label class="pos-rel">
+                                <input type="checkbox" class="ace" />
+                                <span class="lbl"></span>
+                            </label>
+                        </th>
+                        <th>属性1</th>
+                        <th>属性2</th>
+                        <th>属性13</th>
+                        <th>属性14</th>
+                        <th>属性15</th>
+                        <th>属性16</th>
+                        <th>属性17</th>
+                    </tr>
+                    </thead>
+
+                    <tbody>
+                    <tr>
+                        <td class="center">
+                            <label class="pos-rel">
+                                <input type="checkbox" class="ace" />
+                                <span class="lbl"></span>
+                            </label>
+                        </td>
+                        <td>轻轻巧巧</td>
+                        <td><a href="#">;ptdg,kjgky;</a></td>
+                        <td>$45</td>
+                        <td class="hidden-480">3,330</td>
+                        <td>Feb 1222</td>
+                        <td class="hidden-480">
+                            <span class="label label-sm label-warning">Expiring</span>
+                        </td>
+                        <td>
+                            <div class="hidden-sm hidden-xs btn-group">
+                                <button class="btn btn-xs btn-success">
+                                    <i class="ace-icon fa fa-check bigger-120"></i>
+                                </button>
+
+                                <button class="btn btn-xs btn-info">
+                                    <i class="ace-icon fa fa-pencil bigger-120"></i>
+                                </button>
+
+                                <button class="btn btn-xs btn-danger">
+                                    <i class="ace-icon fa fa-trash-o bigger-120"></i>
+                                </button>
+
+                                <button class="btn btn-xs btn-warning">
+                                    <i class="ace-icon fa fa-flag bigger-120"></i>
+                                </button>
+                            </div>
+                        </td>
+                    </tr><tr>
+                        <td class="center">
+                            <label class="pos-rel">
+                                <input type="checkbox" class="ace" />
+                                <span class="lbl"></span>
+                            </label>
+                        </td>
+                        <td>
+                            轻轻巧巧
+                        </td>
+                        <td>
+                            <a href="#">;ptdg,kjgky;</a>
+                        </td>
+                        <td>$45</td>
+                        <td class="hidden-480">3,330</td>
+                        <td>Feb 1222</td>
+                        <td class="hidden-480">
+                            <span class="label label-sm label-warning">Expiring</span>
+                        </td>
+                        <td>
+                            <div class="hidden-sm hidden-xs btn-group">
+                                <button class="btn btn-xs btn-success">
+                                    <i class="ace-icon fa fa-check bigger-120"></i>
+                                </button>
+
+                                <button class="btn btn-xs btn-info">
+                                    <i class="ace-icon fa fa-pencil bigger-120"></i>
+                                </button>
+
+                                <button class="btn btn-xs btn-danger">
+                                    <i class="ace-icon fa fa-trash-o bigger-120"></i>
+                                </button>
+
+                                <button class="btn btn-xs btn-warning">
+                                    <i class="ace-icon fa fa-flag bigger-120"></i>
+                                </button>
+                            </div>
+                        </td>
+                    </tr><tr>
+                        <td class="center">
+                            <label class="pos-rel">
+                                <input type="checkbox" class="ace" />
+                                <span class="lbl"></span>
+                            </label>
+                        </td>
+                        <td>
+                            轻轻巧巧
+                        </td>
+                        <td>
+                            <a href="#">;ptdg,kjgky;</a>
+                        </td>
+                        <td>$45</td>
+                        <td class="hidden-480">3,330</td>
+                        <td>Feb 1222</td>
+                        <td class="hidden-480">
+                            <span class="label label-sm label-warning">Expiring</span>
+                        </td>
+                        <td>
+                            <div class="hidden-sm hidden-xs btn-group">
+                                <button class="btn btn-xs btn-success">
+                                    <i class="ace-icon fa fa-check bigger-120"></i>
+                                </button>
+
+                                <button class="btn btn-xs btn-info">
+                                    <i class="ace-icon fa fa-pencil bigger-120"></i>
+                                </button>
+
+                                <button class="btn btn-xs btn-danger">
+                                    <i class="ace-icon fa fa-trash-o bigger-120"></i>
+                                </button>
+
+                                <button class="btn btn-xs btn-warning">
+                                    <i class="ace-icon fa fa-flag bigger-120"></i>
+                                </button>
+                            </div>
+                        </td>
+                    </tr><tr>
+                        <td class="center">
+                            <label class="pos-rel">
+                                <input type="checkbox" class="ace" />
+                                <span class="lbl"></span>
+                            </label>
+                        </td>
+                        <td>
+                            轻轻巧巧
+                        </td>
+                        <td>
+                            <a href="#">;ptdg,kjgky;</a>
+                        </td>
+                        <td>$45</td>
+                        <td class="hidden-480">3,330</td>
+                        <td>Feb 1222</td>
+                        <td class="hidden-480">
+                            <span class="label label-sm label-warning">Expiring</span>
+                        </td>
+                        <td>
+                            <div class="hidden-sm hidden-xs btn-group">
+                                <button class="btn btn-xs btn-success">
+                                    <i class="ace-icon fa fa-check bigger-120"></i>
+                                </button>
+
+                                <button class="btn btn-xs btn-info">
+                                    <i class="ace-icon fa fa-pencil bigger-120"></i>
+                                </button>
+
+                                <button class="btn btn-xs btn-danger">
+                                    <i class="ace-icon fa fa-trash-o bigger-120"></i>
+                                </button>
+
+                                <button class="btn btn-xs btn-warning">
+                                    <i class="ace-icon fa fa-flag bigger-120"></i>
+                                </button>
+                            </div>
+                        </td>
+                    </tr><tr>
+                        <td class="center">
+                            <label class="pos-rel">
+                                <input type="checkbox" class="ace" />
+                                <span class="lbl"></span>
+                            </label>
+                        </td>
+                        <td>
+                            轻轻巧巧
+                        </td>
+                        <td>
+                            <a href="#">;ptdg,kjgky;</a>
+                        </td>
+                        <td>$45</td>
+                        <td class="hidden-480">3,330</td>
+                        <td>Feb 1222</td>
+                        <td class="hidden-480">
+                            <span class="label label-sm label-warning">Expiring</span>
+                        </td>
+                        <td>
+                            <div class="hidden-sm hidden-xs btn-group">
+                                <button class="btn btn-xs btn-success">
+                                    <i class="ace-icon fa fa-check bigger-120"></i>
+                                </button>
+
+                                <button class="btn btn-xs btn-info">
+                                    <i class="ace-icon fa fa-pencil bigger-120"></i>
+                                </button>
+
+                                <button class="btn btn-xs btn-danger">
+                                    <i class="ace-icon fa fa-trash-o bigger-120"></i>
+                                </button>
+
+                                <button class="btn btn-xs btn-warning">
+                                    <i class="ace-icon fa fa-flag bigger-120"></i>
+                                </button>
+                            </div>
+                        </td>
+                    </tr>
+                    </tbody>
+                </table>
+            </div><!-- /.page-content -->
+        </div>
+    </div><!-- /.main-content -->
+</div>
+
+<button type="button" class="btn btn-primary" data-toggle="modal" data-target=".bs-example-modal-lg">弹出</button>
+<button type="button" class="btn btn-primary" data-toggle="modal" data-target=".dbcxue-modal">弹出2</button>
+
+
+<div class="modal fade bs-example-modal-lg" tabindex="-1" role="dialog" aria-hidden="true">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4 class="modal-title" id="myModalLabel">弹出的测试</h4>
+                <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">×</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <form id="demo-form2" data-parsley-validate class="form-horizontal form-label-left" action="/taStuPe/insertTaStuPe">
+
+                    <div class="item form-group">
+                        <label class="col-form-label col-md-3 col-sm-3 label-align" for="first-name">姓 <span class="required">*</span>
+                        </label>
+                        <div class="col-md-6 col-sm-6 ">
+                            <input type="text" id="taTestNBA0" name="taTestNBA0" required="required" class="form-control ">
+                        </div>
+                    </div>
+                    <div class="item form-group">
+                        <label class="col-form-label col-md-3 col-sm-3 label-align" for="last-name">名 <span class="required">*</span>
+                        </label>
+                        <div class="col-md-6 col-sm-6 ">
+                            <input type="text" id="taTestNBA1" name="taTestNBA1" required="required" class="form-control">
+                        </div>
+                    </div>
+                    <div class="item form-group">
+                        <label for="middle-name" class="col-form-label col-md-3 col-sm-3 label-align">某属性</label>
+                        <div class="col-md-6 col-sm-6 ">
+                            <input id="taTestNBA2" class="form-control" type="text" name="taTestNBA2">
+                        </div>
+                    </div>
+                    <div class="item form-group">
+                        <label class="col-form-label col-md-3 col-sm-3 label-align">性别</label>
+                        <div class="col-md-6 col-sm-6 ">
+                            <div id="gender" class="btn-group" data-toggle="buttons">
+                                <label class="btn btn-secondary" data-toggle-class="btn-primary" data-toggle-passive-class="btn-default">
+                                    <input type="radio" name="taTestNBA3" value="male" class="join-btn"> &nbsp; 男 &nbsp;
+                                </label>
+                                <label class="btn btn-primary" data-toggle-class="btn-primary" data-toggle-passive-class="btn-default">
+                                    <input type="radio" name="taTestNBA3" value="female" class="join-btn"> &nbsp; 女 &nbsp;
+                                </label>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="ln_solid"></div>
+                    <div class="item form-group">
+                        <div class="col-md-6 col-sm-6 offset-md-3">
+                            <button class="btn btn-primary" type="button">取消</button>
+                            <button class="btn btn-primary" type="reset">重置</button>
+##                            <button type="submit" class="btn btn-success">提交</button>
+                            <button onclick="btnclick()" class="btn btn-success">提交</button>
+
+                        </div>
+                    </div>
+
+                </form>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">取消</button>
+                <button type="button" class="btn btn-primary" data-dismiss="modal">确定</button>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="modal fade dbcxue-modal" tabindex="-1" role="dialog" aria-hidden="true">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4 class="modal-title" id="myModalLabel">Modal title</h4>
+                <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">×</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                aaaaaaaaaaaa
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">取消</button>
+                <button type="button" class="btn btn-primary" data-dismiss="modal">确定</button>
+            </div>
+        </div>
+    </div>
+</div>
+<script type="text/javascript">
+    window.onload = function(){
+        alert(4444);
+    };
+
+    function btnclick(){
+//        ShowMessage.alert("111","tsttittle,400")
+        alert(2222);
+        debugger;
+        $("#demo-form2").val();
+    }
+
+</script>

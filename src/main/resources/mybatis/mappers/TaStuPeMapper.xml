@@ -1,0 +1,206 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.auto.dao.TaStuPeDao" >
+    <resultMap id="BaseResultMap" type="com.auto.domain.TaStuPe" >
+        <id column="id" property="vID" jdbcType="INTEGER" />       <!-- 含义：主键 -->
+        <result column="delflag" property="delflag" jdbcType="TINYINT" />       <!-- 含义：逻辑删除标识 -->
+        <result column="ta_Test_NBA0" property="taTestNBA0" jdbcType="VARCHAR" />     <!-- 业务列的数据库的备注0 -->
+        <result column="ta_Test_NBA1" property="taTestNBA1" jdbcType="VARCHAR" />     <!-- 业务列的数据库的备注1 -->
+        <result column="ta_Test_NBA2" property="taTestNBA2" jdbcType="VARCHAR" />     <!-- 业务列的数据库的备注2 -->
+        <result column="ta_Test_NBA3" property="taTestNBA3" jdbcType="VARCHAR" />     <!-- 业务列的数据库的备注3 -->
+        <result column="ta_Test_NBA4" property="taTestNBA4" jdbcType="VARCHAR" />     <!-- 业务列的数据库的备注4 -->
+
+    </resultMap>
+
+    <!-- 新增测试看看2020 -->
+    <insert id="insert" parameterType="com.auto.domain.TaStuPe" >
+        INSERT INTO taStuPe (
+
+            ta_Test_NBA0,
+            ta_Test_NBA1,
+            ta_Test_NBA2,
+            ta_Test_NBA3,
+            ta_Test_NBA4,
+            delflag
+        )
+        VALUES (
+
+            #{taTestNBA0,jdbcType=VARCHAR},
+            #{taTestNBA1,jdbcType=VARCHAR},
+            #{taTestNBA2,jdbcType=VARCHAR},
+            #{taTestNBA3,jdbcType=VARCHAR},
+            #{taTestNBA4,jdbcType=VARCHAR},
+            1
+        )
+    </insert>
+
+   <!-- 修改测试看看2020 -->
+    <update id="updateByID" parameterType="com.auto.domain.TaStuPe" >
+        <if test="_parameter != null and VID != null">
+        UPDATE taStuPe
+        <set>
+                <if test="taTestNBA0 != null and taTestNBA0 != ''" >
+                ta_Test_NBA0 = #{taTestNBA0,jdbcType=VARCHAR},
+            </if>
+    
+                <if test="taTestNBA1 != null and taTestNBA1 != ''" >
+                ta_Test_NBA1 = #{taTestNBA1,jdbcType=VARCHAR},
+            </if>
+    
+                <if test="taTestNBA2 != null and taTestNBA2 != ''" >
+                ta_Test_NBA2 = #{taTestNBA2,jdbcType=VARCHAR},
+            </if>
+    
+                <if test="taTestNBA3 != null and taTestNBA3 != ''" >
+                ta_Test_NBA3 = #{taTestNBA3,jdbcType=VARCHAR},
+            </if>
+    
+                <if test="taTestNBA4 != null and taTestNBA4 != ''" >
+                ta_Test_NBA4 = #{taTestNBA4,jdbcType=VARCHAR},
+            </if>
+    
+            delflag = 1
+        </set>
+        <where>
+            V_ID = #{VID,jdbcType=VARCHAR}
+            AND delflag = 1
+        </where>
+        </if>
+    </update>
+
+    <!-- 逻辑删除 测试看看2020 -->
+    <update id="deleteByID" parameterType="com.auto.domain.TaStuPe" >
+        <if test="_parameter != null and VID != null">
+            UPDATE taStuPe
+            <set>
+                delflag = 0
+            </set>
+            <where>
+                V_ID = #{VID,jdbcType=VARCHAR}
+                AND delflag = 1
+            </where>
+        </if>
+    </update>
+
+    <!-- 根据主键批量删除测试看看2020（逻辑删除） -->
+    <update id="deleteBatchByIDList" parameterType="java.util.List" >
+        <if test="_parameter != null">
+            UPDATE taStuPe
+            <set>
+                delflag = 0
+            </set>
+            <where>
+                V_ID in
+                <foreach collection="TaStuPes" item = "TaStuPe" open="(" separator="," close=")">
+                    #{TaStuPe.VID,jdbcType=VARCHAR}
+                </foreach>
+                AND delflag = 1
+            </where>
+        </if>
+    </update>
+
+
+
+    <!-- 根据条件查询测试看看2020 -->
+    <select id="select" resultMap="BaseResultMap" parameterType="com.auto.domain.TaStuPe" >
+        SELECT
+            id,
+            ta_Test_NBA0,
+            ta_Test_NBA1,
+            ta_Test_NBA2,
+            ta_Test_NBA3,
+            ta_Test_NBA4,
+            delflag
+        FROM
+            taStuPe
+        <where>
+            delflag = 1
+            <if test="taTestNBA0 != null" >
+                AND ta_Test_NBA0 = #{taTestNBA0,jdbcType=VARCHAR}
+            </if>
+            <if test="taTestNBA1 != null" >
+                AND ta_Test_NBA1 = #{taTestNBA1,jdbcType=VARCHAR}
+            </if>
+            <if test="taTestNBA2 != null" >
+                AND ta_Test_NBA2 = #{taTestNBA2,jdbcType=VARCHAR}
+            </if>
+            <if test="taTestNBA3 != null" >
+                AND ta_Test_NBA3 = #{taTestNBA3,jdbcType=VARCHAR}
+            </if>
+            <if test="taTestNBA4 != null" >
+                AND ta_Test_NBA4 = #{taTestNBA4,jdbcType=VARCHAR}
+            </if>
+            <if test="vID != null" >
+                AND id = #{vID,jdbcType=VARCHAR}
+            </if>
+
+        </where>
+    </select>
+
+
+
+    <!-- 根据条件查询测试看看2020 -->
+    <select id="findPage" resultMap="BaseResultMap" parameterType="com.auto.domain.TaStuPePageQueryCondition" >
+        SELECT
+            id,
+            ta_Test_NBA0,
+            ta_Test_NBA1,
+            ta_Test_NBA2,
+            ta_Test_NBA3,
+            ta_Test_NBA4,
+            delflag
+        FROM
+        taStuPe
+        <where>
+            delflag = 1
+            <if test="taTestNBA0 != null" >
+                AND ta_Test_NBA0 = #{taTestNBA0,jdbcType=VARCHAR}
+            </if>
+            <if test="taTestNBA1 != null" >
+                AND ta_Test_NBA1 = #{taTestNBA1,jdbcType=VARCHAR}
+            </if>
+            <if test="taTestNBA2 != null" >
+                AND ta_Test_NBA2 = #{taTestNBA2,jdbcType=VARCHAR}
+            </if>
+            <if test="taTestNBA3 != null" >
+                AND ta_Test_NBA3 = #{taTestNBA3,jdbcType=VARCHAR}
+            </if>
+            <if test="taTestNBA4 != null" >
+                AND ta_Test_NBA4 = #{taTestNBA4,jdbcType=VARCHAR}
+            </if>
+            <if test="vID != null" >
+                AND id = #{vID,jdbcType=VARCHAR}
+            </if>
+            <if test="offset != null and pageSize != null" >
+                limit #{offset,jdbcType=INTEGER}, #{pageSize,jdbcType=INTEGER}
+            </if>
+
+        </where>
+    </select>
+    <!-- 根据条件查询测试看看2020数量 -->
+    <select id="findPageCount" resultType="java.lang.Integer"  parameterType="com.auto.domain.TaStuPePageQueryCondition" >
+        SELECT
+        COUNT(1)
+        FROM
+        taStuPe
+        <where>
+            delflag = 1
+            <if test="taTestNBA0 != null" >
+                AND ta_Test_NBA0 = #{taTestNBA0,jdbcType=VARCHAR}
+            </if>
+            <if test="taTestNBA1 != null" >
+                AND ta_Test_NBA1 = #{taTestNBA1,jdbcType=VARCHAR}
+            </if>
+            <if test="taTestNBA2 != null" >
+                AND ta_Test_NBA2 = #{taTestNBA2,jdbcType=VARCHAR}
+            </if>
+            <if test="taTestNBA3 != null" >
+                AND ta_Test_NBA3 = #{taTestNBA3,jdbcType=VARCHAR}
+            </if>
+            <if test="taTestNBA4 != null" >
+                AND ta_Test_NBA4 = #{taTestNBA4,jdbcType=VARCHAR}
+            </if>
+        </where>
+    </select>
+
+</mapper>

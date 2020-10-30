@@ -6,7 +6,6 @@
 <configuration>
     <mappers>
         <!-- 基本资料 -->
-                    <mapper resource="mybatis\mappers\ThirdTestBy0Mapper.xml" />
-                    <mapper resource="mybatis\mappers\ThirdTestBy1Mapper.xml" />
+                    <mapper resource="mybatis\mappers\TaStuPeMapper.xml" />
             </mappers>
 </configuration>

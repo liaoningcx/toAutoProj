@@ -1,114 +1,187 @@
+<script type="text/javascript" src="../../static/js/common/util/nc_alert.js"></script>
+<script type="text/javascript" src="../../static/bootstraptable/bootstrap-table.js"></script>
+<script type="text/javascript" src="../../static/bootstraptable/bootstrap-table-zh-CN.js"></script>
+<script type="text/css" src="../../static/bootstraptable/bootstrap-table.css"></script>
 
-<script type="text/javascript" src="#springUrl('')/static/bussiness/index.js"></script>
-<div id="queryParam" style="height:20%;">
-
+<div id="toolbar" class="btn-group">
+    <button id="btn_add" type="button" class="btn btn-default">
+        <span class="fa fa-plus" aria-hidden="true"></span>新增
+    </button>
+    <button id="btn_edit" type="button" class="btn btn-default">
+        <span class="fa fa-edit" aria-hidden="true"></span>修改
+    </button>
+    <button id="btn_delete" type="button" class="btn btn-default">
+        <span class="fa fa-minus-circle" aria-hidden="true"></span>删除
+    </button>
 </div>
-<div style="height: 80%">
-    <table id="dgData" class="easyui-datagrid" title="自定义测试" style="width:100%;height:100%"
-    ##                   data-options="singleSelect:true,collapsible:true,url:'/static/jquery-easyui-1.6.3/demo/datagrid/datagrid_data1.json',method:'get'">
-           data-options="rownumber:true,pagination:true,singleSelect:true,collapsible:true">
-    ##                <thead>
-    ##                    <tr>
-    ##                        <th data-options="field:'taTestNBA0',width:80">taTestNBA0</th>
-    ##                        <th data-options="field:'taTestNBA1',width:100">taTestNBA1</th>
-    ##                        <th data-options="field:'taTestNBA2',width:80,align:'right'">taTestNBA2</th>
-    ##                        <th data-options="field:'taTestNBA3',width:80,align:'right'">taTestNBA3</th>
-    ##                        <th data-options="field:'taTestNBA4',width:250">taTestNBA4</th>
-    ##                        <th data-options="field:'taTestNBA5',width:60,align:'center'">taTestNBA5</th>
-    ##                    </tr>
-    ##                </thead>
+<table id="testtable"></table>
 
-        <thead>
-        <tr>
-            <th data-options="field:'itemid',width:100">Item ID1</th>
-            <th data-options="field:'productid',width:100">Product</th>
-            <th data-options="field:'listprice',width:180,align:'right'">List Price</th>
-            <th data-options="field:'unitcost',width:180,align:'right'">Unit Cost</th>
-            <th data-options="field:'attr1',width:250">Attribute</th>
-            <th data-options="field:'status',width:160,align:'center'">Status</th>
-        </tr>
-        </thead>
-    </table>
+<button type="button" class="btn btn-primary" data-toggle="modal" data-target=".bs-example-modal-lg">1弹出</button>
+<button type="button" class="btn btn-primary" data-toggle="modal" data-target=".dbcxue-modal">弹出2</button>
 
-    <!-- 修改的div -->
-    <div id="w" class="easyui-window" title="修改员工信息" data-options="iconCls:'icon-save',closed:true"
-         style="width:500px;height:300px;padding:5px;">
-        <form id="ff" method="post">
-            <input type="hidden" name="_method" value="put">
-            <table cellpadding="5">
-                <tr>
-                    <td>员工姓名:</td>
-                    <td><input class="easyui-textbox" type="text" name="ename" data-options="required:true" ></input></td>
-                </tr>
-                <tr>
-                    <td>工    种:</td>
-                    <td><input class="easyui-textbox" type="text" name="job" data-options="required:true" ></input></td>
-                </tr>
-                <tr>
-                    <td>入职日期:</td>
-                    <td><input class="easyui-datebox" type="text" name="hiredate" data-options="required:true"></input></td>
-                </tr>
-                <tr>
-                    <td>薪    水:</td>
-                    <td><input class="easyui-textbox" type="text" name="sal" data-options="required:true"></input></td>
-                </tr>
-                <tr>
-                    <td>性    别:</td>
-                    <td>
-                        <select class="easyui-combobox" name="deptno" style="width:50px">
-                            <option value="1">男</option>
-                            <option value="0">女</option>
 
-                        </select>
-                    </td>
-                </tr>
-            </table>
-        </form>
-        <div style="text-align:center;padding:5px">
-            <a href="javascript:void(0)" class="easyui-linkbutton" onclick="saveUpdateForm()">保存</a>
-            <a href="javascript:void(0)" class="easyui-linkbutton" onclick="clearUpdateForm()">重置</a>
+
+<div class="modal fade bs-example-modal-lg" tabindex="-1" role="dialog" aria-hidden="true">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4 class="modal-title" id="myModalLabel">MODEL修改</h4>
+                <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">×</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <form id="saveTestNBAForm" method="post" data-parsley-validate class="form-horizontal form-label-left" action="/taStuPe/insertTaStuPe">
+                    <div class="item form-group">
+                        <label class="col-form-label col-md-3 col-sm-3 label-align" for="first-name">taTestNBA0 <span class="required">*</span>
+                        </label>
+                        <div class="col-md-6 col-sm-6 ">
+                            <input type="text" id="taTestNBA0" name="taTestNBA0" required="required" class="form-control ">
+                        </div>
+                    </div>
+                    <div class="item form-group">
+                        <label class="col-form-label col-md-3 col-sm-3 label-align" for="last-name">taTestNBA1 <span class="required">*</span>
+                        </label>
+                        <div class="col-md-6 col-sm-6 ">
+                            <input type="text" id="taTestNBA1" name="taTestNBA1" required="required" class="form-control">
+                        </div>
+                    </div>
+                    <div class="item form-group">
+                        <label for="middle-name" class="col-form-label col-md-3 col-sm-3 label-align">taTestNBA2</label>
+                        <div class="col-md-6 col-sm-6 ">
+                            <input id="taTestNBA2" class="form-control" type="text" name="taTestNBA2">
+                        </div>
+                    </div>
+                    <div class="item form-group">
+                        <label class="col-form-label col-md-3 col-sm-3 label-align">taTestNBA3</label>
+                        <div class="col-md-6 col-sm-6 ">
+                            <div id="gender" class="btn-group" data-toggle="buttons">
+                                <label class="btn btn-secondary" data-toggle-class="btn-primary" data-toggle-passive-class="btn-default">
+                                    <input type="radio" name="taTestNBA3" value="male" class="join-btn"> &nbsp; 男 &nbsp;
+                                </label>
+                                <label class="btn btn-primary" data-toggle-class="btn-primary" data-toggle-passive-class="btn-default">
+                                    <input type="radio" name="taTestNBA3" value="female" class="join-btn"> &nbsp; 女 &nbsp;
+                                </label>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="ln_solid"></div>
+                    <div class="item form-group">
+                        <div class="col-md-6 col-sm-6 offset-md-3">
+                            <button class="btn btn-primary" type="button">取消</button>
+                            <button class="btn btn-primary" type="reset">重置</button>
+                        ##                            <button type="submit" class="btn btn-success">提交</button>
+                            <button onclick="btnclick()" class="btn btn-success">提交</button>
+
+                        </div>
+                    </div>
+
+                </form>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">取消</button>
+                <button type="button" class="btn btn-primary" data-dismiss="modal">确定</button>
+            </div>
         </div>
     </div>
-    <!-- 新增的div -->
-    <div id="z" class="easyui-window" title="增加员工信息" data-options="iconCls:'icon-save',closed:true" style="width:500px;height:300px;padding:5px;">
-        <form id="zz" method="post">
-            <table cellpadding="5">
-                <tr>
-                    <td>员工姓名:</td>
-                    <td><input class="easyui-textbox" type="text" name="ename"></input></td>
-                </tr>
-                <tr>
-                    <td>工    种:</td>
-                    <td><input class="easyui-textbox" type="text" name="job" data-options="required:true" ></input></td>
-                </tr>
-
-                <tr>
-                    <td>薪    水:</td>
-                    <td><input class="easyui-textbox" type="text" name="sal" data-options="required:true"></input></td>
-                </tr>
-                <tr>
-                    <td>入职日期:</td>
-                    <td><input class="easyui-datebox" type="text" name="hiredate" data-options="required:true"></input></td>
-                </tr>
-
-                <tr>
-                    <td>性    别:</td>
-                    <td>
-                        <select class="easyui-combobox" name="deptno" style="width:50px">
-                            <option value="1">男</option>
-                            <option value="0">女</option>
-
-                        </select>
-                    </td>
-                </tr>
-
-            </table>
-        </form>
-        <div style="text-align:center;padding:5px">
-            <a href="javascript:void(0)" class="easyui-linkbutton" onclick="saveInsForm()">保存</a>
-            <a href="javascript:void(0)" class="easyui-linkbutton" onclick="resetInsForm()">重置</a>
+</div>
+<div class="modal fade dbcxue-modal" tabindex="-1" role="dialog" aria-hidden="true">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4 class="modal-title" id="myModalLabel">Modal title</h4>
+                <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">×</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                aaaaaaaaaaaa
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">取消</button>
+                <button type="button" class="btn btn-primary" data-dismiss="modal">确定</button>
+            </div>
         </div>
     </div>
-
-
 </div>
+
+<script type="text/javascript">
+    var curPageNum = 1;
+    function getModifyData() {
+        var obj = {};
+        obj.taTestNBA0 = $("#taTestNBA0").val();
+        obj.taTestNBA1 = $("#taTestNBA1").val();
+        obj.taTestNBA2 = $("#taTestNBA2").val();
+        return obj;
+    }
+    function btnclick() {
+        var dataParam = getModifyData();
+        alert(66666);
+        $.ajax({
+            type:"POST",
+            url:"/taStuPe/insertTaStuPe",
+            dataType:"json",
+            data:JSON.stringify(dataParam),
+            contentType:"application/json",
+            success:function(data){
+            if(data.success){
+                $("searchResult").html(data.msg);
+            }else{
+                $("#searchResult").html("出现错误：" + data.msg);
+            }
+        },
+        error:function(jqXHR){
+            aler("发生错误："+ jqXHR.status);
+        }
+    });
+    }
+    function testinit() {
+        $('#testtable').bootstrapTable({
+            url: '/taStuPe/findTaStuPePageServe',
+            onPageChange:pageChage,
+            pagination: true,
+            sidePagination: "server",
+            toolbar:'#toolbar',
+//            classes:'table-sm',
+            method: 'post',
+            queryParams: getQueryParams,
+            onLoadSuccess:loadSuccess,
+            dataField : "data",
+            columns: [{
+                field: 'issel',
+                title: '选择',
+                radio:true
+            },{
+                field: 'taTestNBA0',
+                title: '主键'
+            }, {
+                field: 'taTestNBA1',
+                title: '名称'
+            }, {
+                field: 'taTestNBA2',
+                title: '价格'
+            }, {
+                field:"actionId",
+                title:"操作",
+                align:"center",
+                formatter:formatterActionColomn
+            }]
+        });
+        $('#historytable').bootstrapTable('hideLoading');
+    }
+
+    function pageChage(number, size) {
+        curPageNum = number;
+        $('#tableList').bootstrapTable('refresh');
+    }
+    function formatterActionColomn(value,row,index,field){
+        return '<a href="javascript:void(0);" data-toggle="modal" data-target=".bs-example-modal-lg"><i class="fa fa-edit"></i> </a>' +
+                '<a href="javascript:void(0);"><i class="fa fa-minus-circle"></i></a>'
+    }
+    function getQueryParams(queryParam) {
+        return {page:curPageNum,pageSize:10 }
+    }
+    function loadSuccess(data) {
+        $('#historytable').bootstrapTable('hideLoading');
+    }
+    testinit();
+</script>

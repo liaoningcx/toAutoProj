@@ -9,13 +9,15 @@ public class Page<T> {
 
     private int currentPage = 1;//当前页
     private int pageSize = 10;//每页个数
-    private int prePage;//上一页
-    private int nextPage;//下一页
-    private int totalRow;//总列数
+    private int totalRowCount;//结果集总个数
     private int totalPage;//总页数
-    private List<T> result;
+    private List<T> result;//搜索的结果集
 
     private int offset;//从第几行开始
+
+    public void setOffset(int offset) {
+        this.offset = offset;
+    }
 
     public boolean hasNextPage() {
         return this.getPageSize() + 1 <= this.getTotalPage();
@@ -23,21 +25,6 @@ public class Page<T> {
 
     public boolean isLastPage() {
         return !this.hasNextPage();
-    }
-
-    public void refresh() {
-        if(this.totalRow == 0) {
-            this.currentPage = 1;
-            this.totalPage = 1;
-        } else {
-            this.totalPage = this.getTotalPage();
-            this.currentPage = this.currentPage < 1?1:this.currentPage;
-            this.currentPage = this.currentPage > this.totalPage?this.totalPage:this.currentPage;
-        }
-
-        this.nextPage = this.currentPage < this.totalPage?this.currentPage + 1:this.totalPage;
-        this.prePage = this.currentPage - 1 > 1?this.currentPage - 1:1;
-
     }
 
     public int getCurrentPage() {
@@ -56,38 +43,18 @@ public class Page<T> {
         if(pageSize > 0) {
             this.pageSize = pageSize;
         }
-
     }
 
-    public int getPrePage() {
-        return prePage;
+    public int getTotalRowCount() {
+        return totalRowCount;
     }
 
-    public void setPrePage(int prePage) {
-        this.prePage = prePage;
-    }
-
-    public int getNextPage() {
-        return nextPage;
-    }
-
-    public void setNextPage(int nextPage) {
-        this.nextPage = nextPage;
-    }
-
-    public int getTotalRow() {
-        return totalRow;
-    }
-
-    public void setTotalRow(int totalRow) {
-        if(totalRow > 0) {
-            this.totalRow = totalRow;
-        }
-
+    public void setTotalRowCount(int totalRowCount) {
+        this.totalRowCount = totalRowCount;
     }
 
     public int getTotalPage() {
-        return (int)Math.ceil((double)this.getTotalRow() / (double)this.getPageSize());
+        return (int)Math.ceil((double)this.getTotalRowCount() / (double)this.getPageSize());
     }
 
     public void setTotalPage(int totalPage) {
@@ -106,5 +73,24 @@ public class Page<T> {
         int page_index = this.getCurrentPage() - 1;
         page_index = page_index < 0?0:page_index;
         return page_index * this.pageSize;
+    }
+
+    /**
+     * 获取从第几条结果集开始
+     * @return 第几条开始
+     */
+    public int getStartIndex() {
+        return (currentPage - 1) * pageSize + 1;
+    }
+    /**
+     * 获取从第几条结果集结束
+     * @return 第几条结束
+     */
+    public int getEndIndex() {
+        int end = currentPage * pageSize;
+        if (end > totalRowCount) {
+            end = totalRowCount;
+        }
+        return end;
     }
 }
